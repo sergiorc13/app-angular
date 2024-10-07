@@ -1,0 +1,11 @@
+.logo img {
+    margin-right: 1rem;
+    width: 75px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: blue;
+}
+
