@@ -10,6 +10,7 @@ import { PrincipalComponent } from './vistas/principal/principal.component';
 import { AboutComponent } from './vistas/about/about.component';
 import { ItemsComponent } from './vistas/items/items.component';
 import { BuscarComponent } from './vistas/buscar/buscar.component';
+import { LoginComponent } from './vistas/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BuscarComponent } from './vistas/buscar/buscar.component';
     PrincipalComponent,
     AboutComponent,
     ItemsComponent,
-    BuscarComponent
+    BuscarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

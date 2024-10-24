@@ -11,10 +11,12 @@ export class InfoPaginaService {
   info: InfoPagina = {};
   cargada: boolean = false;
   equipo: any[] = [];
+  informacion: any[] = [];  // Nueva propiedad para almacenar los datos de 'info'
 
   constructor(private http: HttpClient) { 
     this.cargarInfo();
     this.cargarEquipo();
+    this.cargarInformacion();  // Llamada al nuevo método para cargar 'info'
   }
 
   private cargarInfo() {
@@ -34,4 +36,12 @@ export class InfoPaginaService {
           })
   }
  
+
+  private cargarInformacion() {
+    // Obtener los datos de info desde Firebase
+    this.http.get('https://cliente-fdd75-default-rtdb.europe-west1.firebasedatabase.app/info.json')
+      .subscribe((resp: any) => {
+        this.informacion = resp;  // Almacenar los datos de 'info' en la propiedad 'informacion'
+      });
+  }
 }
