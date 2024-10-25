@@ -11,6 +11,8 @@ import { AboutComponent } from './vistas/about/about.component';
 import { ItemsComponent } from './vistas/items/items.component';
 import { BuscarComponent } from './vistas/buscar/buscar.component';
 import { LoginComponent } from './vistas/login/login.component';
+import { ActividadesComponent } from './vistas/actividades/actividades.component';
+import { NoticiasComponent } from './vistas/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LoginComponent } from './vistas/login/login.component';
     AboutComponent,
     ItemsComponent,
     BuscarComponent,
-    LoginComponent
+    LoginComponent,
+    ActividadesComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,

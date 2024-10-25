@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 import { ProductoDescripcion } from '../../interfaces/producto-descripcion.interface';
@@ -9,7 +9,7 @@ import { ProductoDescripcion } from '../../interfaces/producto-descripcion.inter
   styleUrls: ['./items.component.css']
 })
   
-export class ItemsComponent {
+export class ItemsComponent implements OnInit {
 
   producto: ProductoDescripcion | undefined;
   id: string = '';
