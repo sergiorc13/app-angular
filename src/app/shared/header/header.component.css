@@ -6,6 +6,24 @@
 .logo {
     display: flex;
     align-items: center;
-    color: blue;
+    color: rgb(0, 0, 0);
 }
 
+
+@media (max-width: 600px) {
+    .logo img {
+        width: 50px;
+        margin-right: 0.5rem;
+        margin-left: 1 rem; 
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .logo img {
+        width: 65px;
+        margin-right: 0.75rem;
+        margin-left: 1 rem; 
+    }
+}
+ 

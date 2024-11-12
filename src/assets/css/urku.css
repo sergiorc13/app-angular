@@ -1320,7 +1320,7 @@ body {
 
 .item-inside__meta {
   text-align: center;
-  color: rgb(13, 50, 170);
+  color: yellow
 }
 .item-inside__meta--contrast:before {
   background-color: rgba(255, 255, 255, .3);
@@ -1352,8 +1352,8 @@ body {
 
 .item-inside-1 {
   /* background-image: url("../img/project-1.jpg"); */
-  background-position: 50% 100%;
-  background-size: 350%;
+  background-position: 50% 80%;
+  background-size: 200%;
 }
 
 @media (min-width: 40em) {
@@ -1988,12 +1988,12 @@ body {
       -ms-transform: translateY(-1em);
           transform: translateY(-1em);
   opacity: 0;
-  top: 100%;
+  top: 50%;
   -webkit-transition: .3s;
           transition: .3s;
   position: absolute;
   visibility: hidden;
-  width: 100%;
+  width: 10px; 
   z-index: -1;
 }
 .rk-menu__sub ul {

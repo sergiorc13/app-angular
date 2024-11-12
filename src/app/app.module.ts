@@ -13,6 +13,8 @@ import { BuscarComponent } from './vistas/buscar/buscar.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { ActividadesComponent } from './vistas/actividades/actividades.component';
 import { NoticiasComponent } from './vistas/noticias/noticias.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { NoticiasComponent } from './vistas/noticias/noticias.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

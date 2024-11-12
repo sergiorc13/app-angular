@@ -11,12 +11,16 @@ export class InfoPaginaService {
   info: InfoPagina = {};
   cargada: boolean = false;
   equipo: any[] = [];
-  informacion: any[] = [];  // Nueva propiedad para almacenar los datos de 'info'
+  informacion: any[] = []; 
+  noticias: any[] = [];  
+  actividades: any[] = [];
 
   constructor(private http: HttpClient) { 
     this.cargarInfo();
     this.cargarEquipo();
-    this.cargarInformacion();  // Llamada al nuevo método para cargar 'info'
+    this.cargarInformacion();
+    this.cargarNoticias();  
+    this.cargarActividades();
   }
 
   private cargarInfo() {
@@ -42,6 +46,20 @@ export class InfoPaginaService {
     this.http.get('https://cliente-fdd75-default-rtdb.europe-west1.firebasedatabase.app/info.json')
       .subscribe((resp: any) => {
         this.informacion = resp;  // Almacenar los datos de 'info' en la propiedad 'informacion'
+      });
+  }
+
+  private cargarNoticias() {
+    this.http.get('https://cliente-fdd75-default-rtdb.europe-west1.firebasedatabase.app/noticias.json')
+      .subscribe((resp: any) => {
+        this.noticias = resp;
+      });
+  }
+
+  private cargarActividades() {
+    this.http.get('https://cliente-fdd75-default-rtdb.europe-west1.firebasedatabase.app/actividades.json')
+      .subscribe((resp: any) => {
+        this.actividades = resp;
       });
   }
 }
