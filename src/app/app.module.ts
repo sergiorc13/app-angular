@@ -14,6 +14,9 @@ import { LoginComponent } from './vistas/login/login.component';
 import { ActividadesComponent } from './vistas/actividades/actividades.component';
 import { NoticiasComponent } from './vistas/noticias/noticias.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistroComponent } from './vistas/registro/registro.component';
+import { PerfilComponent } from './vistas/perfil/perfil.component';
 
 
 @NgModule({
@@ -27,13 +30,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     BuscarComponent,
     LoginComponent,
     ActividadesComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    RegistroComponent,
+    PerfilComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

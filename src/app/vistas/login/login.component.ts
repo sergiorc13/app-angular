@@ -1,89 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistroService } from 'src/app/services/registro.service';
-import { emailValidator } from 'src/app/validators/email';
-import { passwordValidator } from 'src/app/validators/pswd';
+import { AuthService } from 'src/app/services/auth.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-  
-export class LoginComponent {
-  registroForm: FormGroup;
-  errorMessage = ''; 
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(
-    private registroService: RegistroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
   ) {
-    this.registroForm = this.fb.group({
-      nombre_usuario: [
-        '',
-        [
-          Validators.required, 
-          Validators.minLength(5),
-        ]
-      ],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email, 
-          emailValidator
-        ]
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          passwordValidator 
-        ]
-      ],
-      tipo_usuario: ['normal']
+    this.loginForm = this.fb.group({
+      usernameOrEmail: ['', Validators.required],
+      password: ['', Validators.required]
     });
-
   }
 
-  onSubmit() {
-    if (this.registroForm.valid) {
-      console.log('Formulario válido:', this.registroForm.value);  // Verifica si los datos son correctos
-      this.registroService.registrarUsuario(this.registroForm.value).subscribe(
-        (response) => {
-          console.log('Respuesta del backend:', response);  // Verifica qué respuesta estás recibiendo
-          if (response.success) {
-            alert('Usuario registrado con éxito');
-          } else {
-            this.errorMessage = response.message;  // Muestra el mensaje de error del backend
-          }
-        },
-        (error) => {
-          console.error('Error en la solicitud:', error);  // Verifica si hay un error de conexión
-          alert('Error en la conexión');
+  ngOnInit(): void {}
+
+  onLogin() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const { usernameOrEmail, password } = this.loginForm.value;
+    this.authService.login(usernameOrEmail, password).subscribe(
+      response => {
+        if (response.success) {
+          this.authService.setSession(response); // Guarda el nombre de usuario en la sesión
+          this.router.navigate(['/inicio']); // Redirige a la página de inicio
+        } else {
+          this.errorMessage = response.message; // Muestra el error
         }
-      );
-    } else {
-      console.log('Formulario no válido');
-    }
+      },
+      error => {
+        this.errorMessage = 'Hubo un error al intentar iniciar sesión.';
+      }
+    );
   }
-
-
-
-  obtenerErrorCampoNombreUsuario() {
-    const campo = this.registroForm.get('nombre_usuario');
-    if (campo?.hasError('required')) {
-      return 'El nombre de usuario es requerido';
-    }
-    if (campo?.hasError('minlength')) {
-      return 'El nombre de usuario debe tener al menos 5 caracteres';
-    }
-    if (campo?.hasError('primeraLetraMayuscula')) {
-      return campo.getError('primeraLetraMayuscula').mensaje;
-    }
-    return '';
-  }
-
 }

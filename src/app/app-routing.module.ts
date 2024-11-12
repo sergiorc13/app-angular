@@ -7,15 +7,19 @@ import { BuscarComponent } from './vistas/buscar/buscar.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { ActividadesComponent } from './vistas/actividades/actividades.component';
 import { NoticiasComponent } from './vistas/noticias/noticias.component';
+import { RegistroComponent } from './vistas/registro/registro.component';
+import { PerfilComponent } from './vistas/perfil/perfil.component';
 
 const routes: Routes = [
   { path: 'home', component: PrincipalComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: 'actividades', component: ActividadesComponent },
   { path: 'noticias', component: NoticiasComponent },
   { path: 'item/:id', component: ItemsComponent },
   { path: 'search/:termino', component: BuscarComponent },
+  { path: 'perfil', component: PerfilComponent },
 
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' },

@@ -61,23 +61,3 @@ button[type="submit"]:hover {
     font-size: 14px;
     margin-top: 10px;
 }
-
-p {
-    margin-top: 20px;
-}
-
-.redirigir {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.redirigir:hover {
-    background-color: #0056b3;
-}

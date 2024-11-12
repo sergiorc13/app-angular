@@ -27,3 +27,37 @@
     }
 }
  
+.rk-menu__item .greeting {
+    color: black;
+}
+
+.rk-menu__item .username {
+    color: blue;
+}
+
+.rk-container .rk-menu__item.seeProfile a {
+    color: #4CAF50;
+    background-color: transparent;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rk-container .rk-menu__item.seeProfile a:hover {
+    color: #004403;
+    cursor: pointer;
+}
+
+.rk-container .rk-menu__item.logout a {
+    color: red;
+    background-color: transparent;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rk-container .rk-menu__item.logout a:hover {
+    color: darkred;
+    cursor: pointer;
+}

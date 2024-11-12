@@ -18,14 +18,14 @@
           <a routerLink="home">{{_servicio.info.titulo}}<sup>tm</sup></a>
         </div>
       </h1>
-    
+        
       <nav class="rk-navigation">
         <ul class="rk-menu">
           <li routerLinkActive="active" class= "rk-menu__item">
             <a routerLink="home" class="rk-menu__link">Inicio</a>
           </li>
-          <li class="rk-menu__item"><a routerLink="noticias" class="rk-menu__link">Foro/Noticias</a>
-          <li class="rk-menu__item"><a routerLink="actividades" class="rk-menu__link">Actividades</a>
+          <li routerLinkActive="active" class="rk-menu__item"><a routerLink="noticias" class="rk-menu__link">Foro/Noticias</a>
+          <li routerLinkActive="active" class="rk-menu__item"><a routerLink="actividades" class="rk-menu__link">Actividades</a>
             <nav class="rk-menu__sub">
               <ul class="rk-container">
                 <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">Área Vecinal</a></li>
@@ -37,7 +37,20 @@
           <li routerLinkActive="active" class="rk-menu__item">
             <a routerLink="about" class="rk-menu__link">Contacto</a>
           </li>
-          <li class="rk-menu__item"><a routerLink="login" class="rk-menu__link">Iniciar Sesión</a></li>
+            <li *ngIf="currentUser" class="rk-menu__item usuario">
+              <a class="rk-menu__link">
+                <span class="greeting">Hola, </span><span class="username">{{currentUser.nombre_usuario | uppercase}}</span>
+              </a>
+            <nav class="rk-menu__sub">
+              <ul class="rk-container">
+              <li class="rk-menu__item seeProfile"><a routerLink="perfil" class="rk-menu__link">Ver Perfil</a></li>
+              <li class="rk-menu__item logout"><a (click)="onLogout()" class="rk-menu__link">Cerrar Sesión</a></li>
+              </ul>
+            </nav>
+            </li>
+          <div class="rk-menu__item" *ngIf="!currentUser">
+            <a routerLink="/login">Iniciar sesión</a>
+          </div>
         </ul>
 
         <div class="rk-search">

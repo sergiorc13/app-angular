@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Nombre de Usuario:</label>
+    <input formControlName="nombre_usuario" required>
+    <div *ngIf="form.get('nombre_usuario')?.invalid && form.get('nombre_usuario')?.touched" class="error-message">
+        {{obtenerErrorCampoNombreUsuario()}}
+    </div>
+
+    <div *ngIf="errorMessage && errorMessage.includes('nombre de usuario')">
+        <p class="error-message">{{ errorMessage }}</p>
+    </div>
+
+    <label>Nombre:</label>
+    <input formControlName="nombre" required>
+
+    <label>Apellido:</label>
+    <input formControlName="apellido" required>
+
+    <label>Email:</label>
+    <input formControlName="email" type="email" required>
+
+    <!-- Errores para el email -->
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error-message">
+        <div *ngIf="form.get('email')?.hasError('required')">
+            El correo electrónico es requerido.
+        </div>
+        <div *ngIf="form.get('email')?.hasError('email')">
+            El correo electrónico no es válido.
+        </div>
+        <div *ngIf="form.get('email')?.hasError('emailFormat')">
+            El correo electrónico debe tener un '&#64;'.
+        </div>
+    </div>
+
+    <div *ngIf="errorMessage && errorMessage.includes('correo electrónico')">
+        <p class="error-message">{{ errorMessage }}</p>
+    </div>
+
+    <label>Contraseña:</label>
+    <input formControlName="password" type="password" required>
+
+    <!-- Errores para la contraseña -->
+    <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error-message">
+        <div *ngIf="form.get('password')?.hasError('required')">
+            La contraseña es requerida.
+        </div>
+        <div *ngIf="form.get('password')?.hasError('passwordStrength')">
+            {{ form.get('password')?.errors?.['passwordStrength'] }}
+        </div>
+    </div>
+
+    <button type="submit">Registrarme</button>
+
+</form>
