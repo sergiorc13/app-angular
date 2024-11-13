@@ -36,7 +36,13 @@
     </div>
 
     <label>Contraseña:</label>
-    <input formControlName="password" type="password" required>
+    <div class="password-container">
+        <input id="password" type="password" formControlName="password" required />
+        <div class="icono">
+            <i class="fa" [ngClass]="{'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible}"
+                (click)="togglePasswordVisibility()"></i>
+        </div>
+    </div>
 
     <!-- Errores para la contraseña -->
     <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error-message">

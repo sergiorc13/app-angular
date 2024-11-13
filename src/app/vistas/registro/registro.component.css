@@ -61,3 +61,22 @@ button[type="submit"]:hover {
     font-size: 14px;
     margin-top: 10px;
 }
+
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.icono {
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1;
+    align-items: center
+}

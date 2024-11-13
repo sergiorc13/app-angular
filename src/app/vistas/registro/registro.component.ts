@@ -11,6 +11,14 @@ import { passwordValidator } from 'src/app/validators/pswd';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+
+  passwordVisible: boolean = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput: HTMLInputElement = <HTMLInputElement>document.getElementById('password');
+    passwordInput.type = this.passwordVisible ? 'text' : 'password';
+  }
   
   form: FormGroup;
   errorMessage = ''; 
