@@ -23,10 +23,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void { }
+  
   onLogin() {
     if (this.loginForm.invalid) {
+      // Mostrar mensaje de error si el formulario es inválido
+      this.errorMessage = 'Es obligatorio rellenar los campos para iniciar sesión.';
       return;
     }
 
@@ -37,11 +39,13 @@ export class LoginComponent implements OnInit {
           this.authService.setSession(response); // Guarda el nombre de usuario en la sesión
           this.router.navigate(['/inicio']); // Redirige a la página de inicio
         } else {
-          this.errorMessage = response.message; // Muestra el error
+          this.errorMessage = response.message;
+          
         }
       },
       error => {
-        this.errorMessage = 'Hubo un error al intentar iniciar sesión.';
+        this.errorMessage = 'Error al iniciar sesión. Inténtalo de nuevo.';
+        
       }
     );
   }
