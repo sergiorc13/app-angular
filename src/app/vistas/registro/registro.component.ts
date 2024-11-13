@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegistroService } from 'src/app/services/registro.service';
 import { emailValidator } from 'src/app/validators/email';
 import { passwordValidator } from 'src/app/validators/pswd';
@@ -16,7 +17,8 @@ export class RegistroComponent {
 
   constructor(
     private registroService: RegistroService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.form = this.fb.group({
       nombre_usuario: [
@@ -56,6 +58,7 @@ export class RegistroComponent {
           console.log('Respuesta del backend:', response);  // Verifica qué respuesta estás recibiendo
           if (response.success) {
             alert('Usuario registrado con éxito');
+            this.router.navigate(['/login']);
           } else {
             this.errorMessage = response.message;  // Muestra el mensaje de error del backend
           }

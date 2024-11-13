@@ -1,35 +1,52 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost/backend-proyecto/Controlador/controller.php';
+  private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlLogin.php';
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+    this.currentUserSubject = new BehaviorSubject<any>(null);
     this.currentUser = this.currentUserSubject.asObservable();
+    this.checkSession(); // Comprobar si ya hay una sesión activa
   }
 
   // Método para login
   login(usernameOrEmail: string, password: string): Observable<any> {
     const data = { action: 'login', usernameOrEmail, password };
-    return this.http.post<any>(this.apiUrl, data);
+    return this.http.post<any>(this.apiUrl, data).pipe(
+      // Si el login es exitoso, setear la sesión
+      tap(response => {
+        if (response.success) {
+          this.setSession(response);
+        }
+      })
+    );
+  }
+
+  // Método para comprobar si la sesión está activa
+  private checkSession(): void {
+    this.http.get<any>(`${this.apiUrl}?action=checkSession`).subscribe(response => {
+      if (response.isLoggedIn) {
+        this.setSession(response);
+      }
+    });
   }
 
   // Guardar sesión
   setSession(user: any): void {
-    localStorage.setItem('currentUser', JSON.stringify(user)); // Puedes cambiarlo a sessionStorage si prefieres que dure solo la sesión
-    this.currentUserSubject.next(user);
+    this.currentUserSubject.next(user); // Actualizar el usuario actual
   }
 
   // Cerrar sesión
   logout(): void {
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    this.http.get<any>(`${this.apiUrl}?action=logout`).subscribe(() => {
+      this.currentUserSubject.next(null);
+    });
   }
 }
