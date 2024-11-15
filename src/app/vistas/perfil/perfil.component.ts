@@ -6,11 +6,11 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
+  
 export class PerfilComponent implements OnInit {
 
   usuario: any;
   usernameOrEmail: string = localStorage.getItem('usernameOrEmail') || '';
-  password: string = localStorage.getItem('password') || '';
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class PerfilComponent implements OnInit {
   }
 
   obtenerPerfil(): void {
-    this.authService.obtenerPerfil(this.usernameOrEmail, this.password).subscribe(
+    this.authService.obtenerPerfil(this.usernameOrEmail).subscribe(
       data => {
         if (data.success) {
           this.usuario = data;

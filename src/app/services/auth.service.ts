@@ -25,7 +25,6 @@ export class AuthService {
         if (response.success) {
           this.setSession(response);
           localStorage.setItem('usernameOrEmail', usernameOrEmail);
-          localStorage.setItem('password', password);
         }
       })
     );
@@ -48,18 +47,16 @@ export class AuthService {
   // Cerrar sesión
   logout(): void {
     this.http.get<any>(`${this.apiUrl}?action=logout`).subscribe(() => {
-      localStorage.removeItem('usernameOrEmail');
-      localStorage.removeItem('password');
+      localStorage.clear();
       this.currentUserSubject.next(null);
     });
   }
 
   // Método para obtener los datos del perfil con un POST
-  obtenerPerfil(usernameOrEmail: string, password: string): Observable<any> {
+  obtenerPerfil(usernameOrEmail: string): Observable<any> {
     const body = {
       action: 'check',
       usernameOrEmail: usernameOrEmail,
-      password: password
     };
     return this.http.post<any>(this.apiUrl, body);
   }
