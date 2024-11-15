@@ -1,1 +1,23 @@
-<p>perfil works!</p>
+<h2>Perfil works</h2>
+
+
+<div *ngIf="usuario">
+  <h2>Perfil de Usuario</h2>
+
+  <div class="profile-info">
+    <p><strong>Nombre de Usuario:</strong> {{ usuario.nombre_usuario }}</p>
+    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+    <p><strong>Fecha de Registro:</strong> {{ usuario.fecha_registro | date }}</p>
+    <p><strong>Tipo de Usuario:</strong> {{ usuario.tipo_usuario }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ usuario.fecha_nacimiento | date }}</p>
+    <p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
+  </div>
+</div>
+
+<!-- Mensaje de error si no se encuentra el perfil -->
+<div *ngIf="!usuario">
+  <p>No se ha encontrado la información del perfil o sesión no iniciada.</p>
+</div>
+
