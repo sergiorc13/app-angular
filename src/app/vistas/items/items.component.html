@@ -1,13 +1,10 @@
 <section *ngIf="producto">
-    <header [ngStyle]="{'background-image': 'url(assets/productos/'+id+'/main.jpg)', 'background-size': '100%'}"
-     class="rk-portfolio-cover item-inside-1">
-    
-        <div class="item-inside__meta">
-            <h1 class="ae-u-bolder rk-portfolio-title ">{{producto.producto}}</h1>
-            <p class="ae-theta rk-portfolio-category ">{{producto.categoria}}</p>
-        </div>
-    </header>
+    <div class="encabezado">
+        <h1 class="ae-u-bolder rk-portfolio-title ">Equipo: {{producto.producto}}</h1>
+        <p class="ae-theta rk-portfolio-category ">Categoría: {{producto.categoria}}</p>
+    </div>
     <div class="ae-container-fluid ae-container-fluid--inner rk-portfolio--inner">
+        
         <div class="ae-grid ae-grid--collapse au-xs-ptp-1">
             <div class="ae-grid__item item-lg-5 au-lg-ptp-1">
                 <h4 class="ae-u-bolder">{{producto.subtitulo1}}</h4>

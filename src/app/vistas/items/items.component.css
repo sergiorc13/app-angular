@@ -1,0 +1,10 @@
+.encabezado {
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    color: white;
+    padding: 10px;
+    background: linear-gradient(to bottom, rgb(0, 9, 45), #007bff);
+    border: none;
+    border-radius: 5px;
+}
