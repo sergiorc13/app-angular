@@ -1,0 +1,64 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-color: #e1e1e1;
+    border-radius: 20px;
+}
+
+/* Tarjeta de perfil */
+.profile-info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+}
+
+/* Encabezado del perfil */
+h2 {
+    text-align: center;
+    color: #000000;
+    margin-top: 0;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 10px;
+}
+
+/* Información del perfil */
+.profile-info p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.profile-info p strong {
+    color: #2b2b2b;
+}
+
+/* Mensaje de error */
+:host ::ng-deep div[ngIf="!usuario"] p {
+    color: #d9534f;
+    font-size: 1rem;
+    text-align: center;
+    margin: 20px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3e9041;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #215723;
+    transform: scale(1.05);
+}

@@ -1,5 +1,5 @@
 <div *ngIf="usuario">
-  <h2>Perfil de Usuario</h2>
+  <h2>MI PERFIL</h2>
 
   <div class="profile-info">
     <p><strong>Nombre de Usuario:</strong> {{ usuario.nombre_usuario }}</p>
@@ -10,6 +10,7 @@
     <p><strong>Tipo de Usuario:</strong> {{ usuario.tipo_usuario }}</p>
     <p><strong>Fecha de Nacimiento:</strong> {{ usuario.fecha_nacimiento | date }}</p>
     <p><strong>Dirección:</strong> {{ usuario.direccion }}</p>
+    <button (click)="modificarPerfil()">Modificar Datos</button>
   </div>
 </div>
 

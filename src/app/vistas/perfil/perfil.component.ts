@@ -31,4 +31,8 @@ export class PerfilComponent implements OnInit {
       }
     );
   }
+
+  modificarPerfil() {
+   console.log('Modificar perfil');
+  }
 }

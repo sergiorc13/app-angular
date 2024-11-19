@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <label>Nombre de Usuario:</label>
-    <input formControlName="nombre_usuario" required>
+    <input formControlName="nombre_usuario" type="text" required>
     <div *ngIf="form.get('nombre_usuario')?.invalid && form.get('nombre_usuario')?.touched" class="error-message">
         {{obtenerErrorCampoNombreUsuario()}}
     </div>
@@ -10,10 +10,10 @@
     </div>
 
     <label>Nombre:</label>
-    <input formControlName="nombre" required>
+    <input formControlName="nombre" type="text" required>
 
     <label>Apellido:</label>
-    <input formControlName="apellido" required>
+    <input formControlName="apellido" type="text" required>
 
     <label>Email:</label>
     <input formControlName="email" type="email" required>
@@ -54,6 +54,17 @@
         </div>
     </div>
 
-    <button type="submit">Registrarme</button>
+    <label>Dirección:</label>
+    <input formControlName="direccion" type="text" required>
+    <div *ngIf="form.get('direccion')?.invalid && form.get('direccion')?.touched" class="error-message">
+        La dirección es requerida.
+    </div>
 
+    <label>Fecha de Nacimiento:</label>
+    <input formControlName="fecha_nacimiento" type="date" required>
+    <div *ngIf="form.get('fecha_nacimiento')?.invalid && form.get('fecha_nacimiento')?.touched" class="error-message">
+        La fecha de nacimiento es requerida.
+    </div>
+
+    <button type="submit">Registrarme</button>
 </form>

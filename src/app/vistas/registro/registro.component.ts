@@ -53,6 +53,8 @@ export class RegistroComponent {
           passwordValidator 
         ]
       ],
+      direccion: ['', Validators.required], // Campo obligatorio para la dirección
+      fecha_nacimiento: ['', Validators.required], // Campo obligatorio para la fecha de nacimiento
       tipo_usuario: ['normal']
     });
 
@@ -81,8 +83,6 @@ export class RegistroComponent {
     }
   }
 
-
-
   obtenerErrorCampoNombreUsuario() {
     const campo = this.form.get('nombre_usuario');
     if (campo?.hasError('required')) {
@@ -97,5 +97,12 @@ export class RegistroComponent {
     return '';
   }
 
+  obtenerErrorCampoFechaNacimiento() {
+    const campo = this.form.get('fecha_nacimiento');
+    if (campo?.hasError('required')) {
+      return 'La fecha de nacimiento es requerida';
+    }
+    return '';
+  }
 
 }
