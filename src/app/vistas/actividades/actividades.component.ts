@@ -7,12 +7,18 @@ import { InfoPaginaService } from 'src/app/services/info-pagina.service';
   templateUrl: './actividades.component.html',
   styleUrls: ['./actividades.component.css']
 })
-export class ActividadesComponent  implements OnInit {
 
 
-  constructor(public infoService: InfoPaginaService) { }
+export class ActividadesComponent {
+  filtroSeleccionado: string = 'todas'; // Valor inicial para mostrar todas las actividades
 
-  ngOnInit(): void {
+  constructor(public infoService: InfoPaginaService) {}
+
+  // Método para filtrar actividades por tipo
+  getActividadesPorTipo(tipo: string): any[] {
+    if (this.filtroSeleccionado === 'todas') {
+      return this.infoService.actividades;
+    }
+    return this.infoService.actividades.filter(actividad => actividad.tipo === tipo);
   }
-  
 }

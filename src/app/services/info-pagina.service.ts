@@ -59,7 +59,9 @@ export class InfoPaginaService {
   private cargarActividades() {
     this.http.get('https://cliente-fdd75-default-rtdb.europe-west1.firebasedatabase.app/actividades.json')
       .subscribe((resp: any) => {
-        this.actividades = resp;
+        // Convertir el objeto de Firebase en un array
+        this.actividades = Object.values(resp);
+        console.log(this.actividades); // Verifica los datos en la consola
       });
   }
 }
