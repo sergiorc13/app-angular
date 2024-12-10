@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Añadir Noticia</h2>
+
+<form [formGroup]="noticiaForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="titulo" placeholder="Escribe el título" />
+        <mat-error *ngIf="noticiaForm.get('titulo')?.hasError('required')">
+            El título es obligatorio
+        </mat-error>
+        <mat-error *ngIf="noticiaForm.get('titulo')?.hasError('maxLength')">
+            El título no puede exceder 100 caracteres
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contenido</mat-label>
+        <textarea matInput formControlName="contenido" placeholder="Escribe el contenido"></textarea>
+        <mat-error *ngIf="noticiaForm.get('contenido')?.hasError('required')">
+            El contenido es obligatorio
+        </mat-error>
+        <mat-error *ngIf="noticiaForm.get('contenido')?.hasError('minLength')">
+            El contenido debe tener al menos 10 caracteres
+        </mat-error>
+    </mat-form-field>
+
+    <div class="actions">
+        <button mat-button (click)="onCancel()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!noticiaForm.valid">Guardar</button>
+    </div>
+</form>

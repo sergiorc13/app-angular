@@ -70,7 +70,7 @@
 }
 
 /* Estilo para el botón de añadir más noticias */
-.añadir {
+.anadir {
     background-color: #0050a5;
     color: white;
     padding: 10px 20px;
@@ -82,7 +82,7 @@
     margin-bottom: 20px;
 }
 
-.añadir:hover {
+.anadir:hover {
     background-color: #003366;
     transform: scale(1.05);
 }

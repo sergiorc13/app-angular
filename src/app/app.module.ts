@@ -19,6 +19,12 @@ import { RegistroComponent } from './vistas/registro/registro.component';
 import { PerfilComponent } from './vistas/perfil/perfil.component';
 
 import { FormsModule } from '@angular/forms';
+import { FormNoticiasComponent } from './vistas/noticias/form-noticias/form-noticias.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     NoticiasComponent,
     RegistroComponent,
     PerfilComponent,
+    FormNoticiasComponent,
   ],
   
   imports: [
@@ -42,7 +49,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

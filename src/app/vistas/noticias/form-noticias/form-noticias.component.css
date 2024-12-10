@@ -1,0 +1,60 @@
+/* General */
+.full-width {
+  width: 100%;
+  max-width: 500px; /* Limitar el ancho máximo */
+  margin: 0 auto 15px; /* Centrar y agregar espacio inferior */
+}
+
+/* Formulario */
+mat-form-field {
+  display: block;
+  width: 100%; /* Asegurarse de que ocupe todo el ancho disponible */
+}
+
+mat-form-field input,
+mat-form-field textarea {
+  font-size: 16px; /* Tamaño de fuente uniforme */
+}
+
+mat-error {
+  color: #d32f2f; /* Cambiar el color de error */
+  font-size: 14px; /* Ajustar tamaño */
+}
+
+/* Título */
+mat-dialog-title {
+  text-align: center; /* Centrar el título */
+  font-size: 20px; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Acciones (botones) */
+.actions {
+  display: flex;
+  justify-content: flex-end ; 
+  gap: 10px;
+  padding: 10px 0;
+  margin-right: 10px;
+}
+
+.actions button {
+  padding: 8px 16px; /* Relleno interno para los botones */
+  font-size: 14px; /* Tamaño de fuente */
+}
+
+.actions button:first-child {
+  background-color: #ff0000; /* Color para el botón cancelar */
+  color: white; /* Texto blanco */
+}
+
+.actions button:first-child:hover {
+  background-color: #6c0000; /* Rojo más oscuro al pasar el mouse */
+}
+
+/*  */
+
+/* Dialog */
+mat-dialog-content {
+  padding: 20px; /* Espacio alrededor del formulario */
+}
