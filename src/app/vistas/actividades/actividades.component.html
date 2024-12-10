@@ -8,44 +8,49 @@
     </select>
 </div>
 
-<div *ngIf="filtroSeleccionado === 'todas'">
-    <div class="titulo" *ngIf="filtroSeleccionado === 'todas'">
-        <h1>Todas las actividades</h1>
-    </div>
-    <div *ngFor="let actividad of infoService.actividades" class="ae-grid__item--alt item-lg-4">
-        <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
-        <p class="au-lh-3">{{ actividad.actividad }}</p>
-    </div>
-</div>
 
-<div *ngIf="filtroSeleccionado !== 'todas'">
-    <div class="titulo" *ngIf="filtroSeleccionado === 'deportiva'">
-        <h1>Área Deportiva</h1>
-    </div>
-    <div *ngIf="filtroSeleccionado === 'deportiva'" class="resp">
-        <div *ngFor="let actividad of getActividadesPorTipo('deportiva')" class="ae-grid__item--alt item-lg-4">
-            <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
-            <p class="au-lh-3">{{ actividad.actividad }}</p>
-        </div>
+    <div *ngIf="filtroSeleccionado === 'todas'">
+        
+            <div class="titulo" *ngIf="filtroSeleccionado === 'todas'">
+                <h1>Todas las actividades</h1>
+            </div>
+            <div class="actividades">
+                <div *ngFor="let actividad of infoService.actividades" class="ae-grid__item--alt item-lg-4">
+                    <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
+                    <p class="au-lh-3">{{ actividad.actividad }}</p>
+                </div>
+            </div>
+        
     </div>
 
-    <div class="titulo" *ngIf="filtroSeleccionado === 'vecinal'">
-        <h1>Área Vecinal</h1>
-    </div>
-    <div *ngIf="filtroSeleccionado === 'vecinal'" class="resp">
-        <div *ngFor="let actividad of getActividadesPorTipo('vecinal')" class="ae-grid__item--alt item-lg-4">
-            <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
-            <p class="au-lh-3">{{ actividad.actividad }}</p>
+    <div *ngIf="filtroSeleccionado !== 'todas'">
+        <div class="titulo" *ngIf="filtroSeleccionado === 'deportiva'">
+            <h1>Área Deportiva</h1>
         </div>
-    </div>
+        <div *ngIf="filtroSeleccionado === 'deportiva'" class="actividades">
+            <div *ngFor="let actividad of getActividadesPorTipo('deportiva')" class="ae-grid__item--alt item-lg-4">
+                <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
+                <p class="au-lh-3">{{ actividad.actividad }}</p>
+            </div>
+        </div>
 
-    <div class="titulo" *ngIf="filtroSeleccionado === 'lúdica'">
-        <h1>Área Lúdica</h1>
-    </div>
-    <div *ngIf="filtroSeleccionado === 'lúdica'" class="resp">
-        <div *ngFor="let actividad of getActividadesPorTipo('lúdica')" class="ae-grid__item--alt item-lg-4">
-            <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
-            <p class="au-lh-3">{{ actividad.actividad }}</p>
+        <div class="titulo" *ngIf="filtroSeleccionado === 'vecinal'">
+            <h1>Área Vecinal</h1>
+        </div>
+        <div *ngIf="filtroSeleccionado === 'vecinal'" class="actividades">
+            <div *ngFor="let actividad of getActividadesPorTipo('vecinal')" class="ae-grid__item--alt item-lg-4">
+                <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
+                <p class="au-lh-3">{{ actividad.actividad }}</p>
+            </div>
+        </div>
+
+        <div class="titulo" *ngIf="filtroSeleccionado === 'lúdica'">
+            <h1>Área Lúdica</h1>
+        </div>
+        <div *ngIf="filtroSeleccionado === 'lúdica'" class="actividades">
+            <div *ngFor="let actividad of getActividadesPorTipo('lúdica')" class="ae-grid__item--alt item-lg-4">
+                <h2 class="ae-u-boldest">{{ actividad.titulo }}</h2>
+                <p class="au-lh-3">{{ actividad.actividad }}</p>
+            </div>
         </div>
     </div>
-</div>

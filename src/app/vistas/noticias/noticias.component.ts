@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoPaginaService } from 'src/app/services/info-pagina.service';
+import { NoticiasService } from 'src/app/services/noticias.service';  // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-noticias',
@@ -7,11 +7,24 @@ import { InfoPaginaService } from 'src/app/services/info-pagina.service';
   styleUrls: ['./noticias.component.css']
 })
 export class NoticiasComponent implements OnInit {
+  noticias: any[] = [];  // Array para almacenar las noticias
+  errorMessage: string = '';  // Para manejar los errores
 
-
-  constructor(public infoService: InfoPaginaService) { }
+  constructor(private noticiasService: NoticiasService) { }
 
   ngOnInit(): void {
+    this.obtenerNoticias();
   }
-  
+
+  obtenerNoticias(): void {
+    this.noticiasService.obtenerNoticias().subscribe({
+      next: (data) => {
+        this.noticias = data;  // Almacenar las noticias en la variable
+      },
+      error: (err) => {
+        this.errorMessage = 'Error al cargar las noticias';
+        console.error('Error: ', err);
+      }
+    });
+  }
 }
