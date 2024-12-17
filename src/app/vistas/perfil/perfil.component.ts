@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog'; // Importar el servicio para modales
+import { ModificarPerfilComponent } from './modificar-perfil/modificar-perfil.component';
 
 @Component({
   selector: 'app-perfil',
@@ -11,7 +13,7 @@ export class PerfilComponent implements OnInit {
 
   usuario: any;
   usernameOrEmail: string = localStorage.getItem('usernameOrEmail') || '';
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,  public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.obtenerPerfil();
@@ -32,7 +34,12 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  modificarPerfil() {
-   console.log('Modificar perfil');
-  }
+  // Función para abrir el modal
+    abrirModal(): void {
+      const dialogRef = this.dialog.open( ModificarPerfilComponent, {
+        width: '800px', // Ajustar el ancho del modal
+        height: '600px', // Ajustar la altura del modal
+        data: this.usuario // Pasar el usuario al modal
+      });
+    }
 }

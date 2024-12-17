@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Editar Perfil</h2>
+
+<form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="nombre_usuario" placeholder="Escribe tu nombre de usuario" [readonly]="true" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Escribe tu nombre" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="apellido" placeholder="Escribe tu apellido" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Escribe tu email" />
+        <mat-error *ngIf="perfilForm.get('email')?.hasError('email')">
+            Debes ingresar un email válido.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Escribe tu nueva contraseña" />
+        <!-- Errores para la contraseña -->
+        <div *ngIf="perfilForm.get('password')?.invalid && perfilForm.get('password')?.touched" class="error-message">
+            <div *ngIf="perfilForm.get('password')?.hasError('required')">
+                La contraseña es requerida.
+            </div>
+            <div *ngIf="perfilForm.get('password')?.hasError('passwordStrength')">
+                {{ perfilForm.get('password')?.errors?.['passwordStrength'] }}
+            </div>
+        </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput type="date" formControlName="fecha_nacimiento" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" placeholder="Escribe tu dirección" />
+    </mat-form-field>
+
+    <div class="actions">
+        <button mat-button>Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!perfilForm.valid">
+            Guardar Cambios
+        </button>
+    </div>
+</form>
