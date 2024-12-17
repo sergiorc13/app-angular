@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.currentUser.subscribe(user => {
-      this.currentUser = user; // Actualiza el nombre de usuario en el header
+      this.currentUser = user; 
     });
   }
 
@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
+  
   buscarProducto(termino: string) {
 
     if (termino.length < 1) {
