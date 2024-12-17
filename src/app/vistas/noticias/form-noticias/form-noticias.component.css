@@ -49,10 +49,8 @@ mat-dialog-title {
 }
 
 .actions button:first-child:hover {
-  background-color: #6c0000; /* Rojo más oscuro al pasar el mouse */
+  background-color: #950000; /* Rojo más oscuro al pasar el mouse */
 }
-
-/*  */
 
 /* Dialog */
 mat-dialog-content {

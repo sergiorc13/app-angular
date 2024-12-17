@@ -61,7 +61,6 @@ export class InfoPaginaService {
       .subscribe((resp: any) => {
         // Convertir el objeto de Firebase en un array
         this.actividades = Object.values(resp);
-        console.log(this.actividades); // Verifica los datos en la consola
       });
   }
 }
