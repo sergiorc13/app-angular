@@ -27,7 +27,7 @@ export class PerfilComponent implements OnInit {
         }
       },
       error => {
-        console.error('Error en la solicitud POST:', error);
+       // console.error('Error en la solicitud POST:', error);
       }
     );
   }
