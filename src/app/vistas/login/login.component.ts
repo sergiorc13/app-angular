@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
         } 
       },
       error => {
+        console.error('Error del servidor:', error);
         this.errorMessage = 'Error al iniciar sesión. Inténtalo de nuevo.'; 
       }
     );

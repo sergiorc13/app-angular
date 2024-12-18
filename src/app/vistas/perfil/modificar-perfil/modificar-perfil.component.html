@@ -26,7 +26,8 @@
 
     <mat-form-field appearance="outline" class="full-width">
         <mat-label>Contraseña</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Escribe tu nueva contraseña" />
+        <input matInput type="text" formControlName="password" placeholder="Introduce la contraseña o una nueva" />
+    
         <!-- Errores para la contraseña -->
         <div *ngIf="perfilForm.get('password')?.invalid && perfilForm.get('password')?.touched" class="error-message">
             <div *ngIf="perfilForm.get('password')?.hasError('required')">
@@ -37,6 +38,8 @@
             </div>
         </div>
     </mat-form-field>
+
+
 
     <mat-form-field appearance="outline" class="full-width">
         <mat-label>Fecha de Nacimiento</mat-label>

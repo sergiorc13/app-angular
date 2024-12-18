@@ -21,6 +21,7 @@ import { PerfilComponent } from './vistas/perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
 import { FormNoticiasComponent } from './vistas/noticias/form-noticias/form-noticias.component';
 
+import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -55,7 +56,8 @@ import { ModificarPerfilComponent } from './vistas/perfil/modificar-perfil/modif
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
