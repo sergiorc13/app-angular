@@ -31,10 +31,10 @@
             <a routerLink="about" class="rk-menu__link">Contacto</a>
           </li>
 
-            <li *ngIf="currentUser" class="rk-menu__item usuario">
+            <li *ngIf="usuario" class="rk-menu__item usuario">
               <a class="rk-menu__link">
                 <span class="greeting">Hola, </span>
-                <span class="username">{{ currentUser.nombre_usuario | uppercase }}</span>
+                <span class="username">{{ usuario.nombre_usuario | uppercase }}</span>
               </a>
               <nav class="rk-menu__sub">
                 <ul class="rk-container">
@@ -48,7 +48,7 @@
               </nav>
             </li>
             
-            <div class="rk-menu__item" *ngIf="!currentUser">
+            <div class="rk-menu__item" *ngIf="!usuario">
               <a routerLink="/login">Iniciar sesión</a>
             </div>
 

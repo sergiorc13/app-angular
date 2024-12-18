@@ -39,6 +39,5 @@ export class NoticiasComponent implements OnInit {
       width: '800px', // Ajustar el ancho del modal
       height: '350px' // Ajustar la altura del modal
     });
-
   }
 }

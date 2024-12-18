@@ -41,19 +41,19 @@ export class LoginComponent implements OnInit {
     }
 
     const { usernameOrEmail, password } = this.loginForm.value;
+
     this.authService.login(usernameOrEmail, password).subscribe(
       response => {
         if (response.success) {
-          this.authService.setSession(response); // Guarda el nombre de usuario en la sesión
-          this.router.navigate(['/inicio']); // Redirige a la página de inicio
+         this.router.navigate(['/inicio']).then(() => {
+            window.location.reload();
+      });
         } else {
-          this.errorMessage = response.message;
-          
-        }
+          this.errorMessage = response.message;     
+        } 
       },
       error => {
-        this.errorMessage = 'Error al iniciar sesión. Inténtalo de nuevo.';
-        
+        this.errorMessage = 'Error al iniciar sesión. Inténtalo de nuevo.'; 
       }
     );
   }

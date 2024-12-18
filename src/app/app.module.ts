@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { ModificarPerfilComponent } from './vistas/perfil/modificar-perfil/modificar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatButtonModule } from '@angular/material/button';
     RegistroComponent,
     PerfilComponent,
     FormNoticiasComponent,
+    ModificarPerfilComponent,
   ],
   
   imports: [
