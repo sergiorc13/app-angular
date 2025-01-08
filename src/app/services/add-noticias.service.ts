@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AddNoticiasService {
 
   //private apiUrl = 'http://localhost/backend-proyecto/Controlador/insertNoticias.php'; 
-  private apiUrl = 'http://caserio.infinityfreeapp.com/backend-proyecto/Controlador/insertNoticias.php';
+  private apiUrl = 'https://tfg-iesvillaverde.atwebpages.com/backend-proyecto/Controlador/insertNoticias.php';
 
   constructor(private http: HttpClient) {}
 
