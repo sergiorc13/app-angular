@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 })
 export class AuthService {
   //private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlLogin.php';
-  private apiUrl = 'http://caserio.infinityfreeapp.com/backend-proyecto/Controlador/controlLogin.php';
+  private apiUrl = 'https://caserio.infinityfreeapp.com/backend-proyecto/Controlador/controlLogin.php';
 
   
   constructor(private http: HttpClient) {  }
