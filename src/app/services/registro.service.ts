@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistroService {
-  private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlRegistro.ini.php';
+  // private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlRegistro.ini.php';
+  private apiUrl = 'http://tfg-iesvillaverde.atwebpages.com/backend-proyecto/Controlador/controlRegistro.ini.php';
 
   constructor(private http: HttpClient) { }
 

@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PerfilService {
-  private apiUrl = 'http://localhost/backend-proyecto/Controlador/modificarUser.php'; // Cambia la URL según tu ruta
+  //private apiUrl = 'http://localhost/backend-proyecto/Controlador/modificarUser.php'; // Cambia la URL según tu ruta
+  private apiUrl = 'http://tfg-iesvillaverde.atwebpages.com/backend-proyecto/Controlador/modificarUser.php';
 
   constructor(private http: HttpClient) {}
 

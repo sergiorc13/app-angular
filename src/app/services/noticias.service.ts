@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NoticiasService {
-  private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlNoticias.php?action=getNoticias';
+  //private apiUrl = 'http://localhost/backend-proyecto/Controlador/controlNoticias.php?action=getNoticias';
+  private apiUrl = 'http://tfg-iesvillaverde.atwebpages.com/backend-proyecto/Controlador/controlNoticias.php?action=getNoticias';
+
 
   constructor(private http: HttpClient) {}
 
