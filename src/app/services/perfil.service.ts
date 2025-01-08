@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PerfilService {
   //private apiUrl = 'http://localhost/backend-proyecto/Controlador/modificarUser.php'; // Cambia la URL según tu ruta
-  private apiUrl = 'https://caserio.infinityfreeapp.com/backend-proyecto/Controlador/modificarUser.php';
+  private apiUrl = 'http://caserio.infinityfreeapp.com/backend-proyecto/Controlador/modificarUser.php';
 
   constructor(private http: HttpClient) {}
 
